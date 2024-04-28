@@ -7,12 +7,14 @@ import sys
 def main():
     try:
       print("Welcome to the program!")
-      workflow = load_workflow('./workflows/base_workflow.json')
-      for iter in range(1, 11):
-        prompt_to_image(workflow, '(realistic:1.25), beautiful:1.1) mountain landscape with a deep blue lake, photolike, high detail, monoton colors', 'lowres, text, branding, watermark, humans, frames, painting', save_previews=True)
+      # workflow = load_workflow('./workflows/base_workflow.json')
+      workflow = load_workflow('./workflows/basic_image_to_image.json')
+      # workflow = load_workflow('./workflows/lady-fashion.json')
+      # for iter in range(1, 11):
+      #   prompt_to_image(workflow, '(realistic:1.25), beautiful:1.1) mountain landscape with a deep blue lake, photolike, high detail, monoton colors', 'lowres, text, branding, watermark, humans, frames, painting', save_previews=True)
       # prompt_to_image(workflow, '(beautiful woman:1.3) sitting on a desk in a nice restaurant with a (glass of wine and plate with salat:0.9), (candlelight dinner atmosphere:1.1), (wearing a red evening dress:1.2), dimmed lighting, cinema, high detail', save_previews=True)
-      # input_path = './input/ComfyUI_00241_.png'
-      # prompt_image_to_image(workflow, input_path, '(white woman wearing a black evening dress:1.5), dimmed lighting, cinema, high detail', save_previews=True)
+      input_path = './input/ComfyUI_00299_.png'
+      prompt_image_to_image(workflow, input_path, '(white woman wearing a black evening dress:1.5), dimmed lighting, cinema, high detail', save_previews=True)
     except Exception as e:
       print(f"An error occurred: {e}")
       exit_program()
@@ -24,4 +26,5 @@ def exit_program():
 def clear_comfy():
   clear(True, True)
 
-main()
+if __name__== "__main__":
+  main()

@@ -4,6 +4,8 @@ import json
 def prompt_image_to_image(workflow, input_path, positve_prompt, negative_prompt='', save_previews=False):
   prompt = json.loads(workflow)
   id_to_class_type = {id: details['class_type'] for id, details in prompt.items()}
+
+  ### k_sampler config
   k_sampler = [key for key, value in id_to_class_type.items() if value == 'KSampler'][0]
   prompt.get(k_sampler)['inputs']['seed'] = generate_random_15_digit_number()
   postive_input_id = prompt.get(k_sampler)['inputs']['positive'][0]
